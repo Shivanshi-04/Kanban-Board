@@ -51,6 +51,7 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--primary-text-color);
+  overflow: hidden;
 }
 
 main {
@@ -65,6 +66,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
 }
 
 nav button {
@@ -86,6 +90,9 @@ section {
   justify-content: space-between;
   /* background-color: blue; */
   gap: var(--padding-l);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
 section .task-column {
@@ -97,6 +104,12 @@ section .task-column {
   gap: var(--padding-m);
   border-radius: var(--border-radius-m);
   transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+section .task-column::-webkit-scrollbar {
+  display: none;
 }
 
 section .task-column.hover-over {
